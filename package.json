@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon  index.js",
+    "start": "node index.js",
+    "build": "./render-build.sh",
+    "migrate": "node --loader ts-node/esm sequelize-cli.mjs"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.5",
+    "nodemon": "^3.1.7",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0"
+  }
+}
