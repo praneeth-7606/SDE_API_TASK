@@ -43,7 +43,7 @@ A robust railway management system API for booking train tickets, checking train
 ## **User Authentication APIs**
 
 ### **1. User Registration**
-- **Path**: `POST /api/auth/register`
+- **Path**: `POST /api/auth/signup`
 - **Description**: Registers a new user.
 - **Request Body**:
   ```json
@@ -66,7 +66,7 @@ A robust railway management system API for booking train tickets, checking train
 ### **3. Admin api**
 - **Path**: `POST /api/admin/trains`
 - **Description**: Adds a new train to the system. Admin authentication required via x-api-key.
-- **Headers**: x-api-key: <API_KEY>
+- **Headers** => x-api-key: <API_KEY>
 - **Request Body**:
   ```json
   {
@@ -74,21 +74,48 @@ A robust railway management system API for booking train tickets, checking train
   "source": "ongole",
   "destination": "kayamkulam",
   "total_seats": 500
-}
+   }
 
-### **1. User Registration**
-- **Path**: `POST /api/auth/register`
-- **Description**: Registers a new user.
-- **Request Body**:
+### **4. Get All Trains (Admin Only)**
+- **Path**: `GET /api/admin/trains`
+- **Description**: Retrieves a list of all trains. Admin authentication required via x-api-key.
+- **Headers** =>x-api-key: <API_KEY>
+
+### **5. Search Trains Between Stations**
+- **Path**: `POST /api/user/trains/searchs`
+- **Description**: Searches for trains between the specified source and destination.
+- **Headers** =>Authorization: Bearer <JWT_TOKEN>
+**Request Body**:
   ```json
-  {
-    "name": "enter name",
-    "email": "enter email",
-    "password": "enter password in double codes",
-    "role": "user"   (it can be either admin or user)
-  }
-
-
+   {
+  "source": "ongole",
+  "destination": "kayamkulam",
+   }
+### **6. Book a Seat**
+- **Path**: `POST /api/user/book`
+- **Description**: Books seats on a specified train.
+- **Headers** =>Authorization: Bearer <JWT_TOKEN>
+**Request Body**:
+  ```json
+   {
+  "train_id": 1,
+  "source": "ongole",
+  "destination": "kayamkulam",
+  "number_of_seats": 3
+   }
+### **6. Get User Bookings**
+- **Path**: `GET /api/user/bookings`
+- **Description**: Fetches all bookings made by the authenticated user.
+- **Headers** =>Authorization: Bearer <JWT_TOKEN>
+**Request Body**:
+  ```json
+   {
+  "train_id": 1,
+  "source": "ongole",
+  "destination": "kayamkulam",
+  "number_of_seats": 3
+   }
+### For all those above apis this is the EXAMPLE format  for signup http://localhost:3000//api/auth/signup
 
   
 
