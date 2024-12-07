@@ -26,6 +26,7 @@ A robust railway management system API for booking train tickets, checking train
    git clone <repository-url>
    cd server
 2.  **Install Dependencies**
+
  - PORT=3000
  - DB_USER=dbusername
  - DB_PASSWORD=dbpassword
@@ -35,8 +36,8 @@ A robust railway management system API for booking train tickets, checking train
 - DATABASE_URL=your_postgresql_connection_string
 - JWT_SECRET=your_jwt_secret.
 - API_KEY=your_admin_api_key.
-3. **Run Database Migrations command to  Set up the database schema **
-  -npx sequelize-cli db:migrate
+3.  **Run Database Migrations command to  Set up the database schema**
+  - npx sequelize-cli db:migrate
 4. **Start Server**
   -  npm run dev
   -  The API will be available at http://localhost:3000.
@@ -82,7 +83,7 @@ A robust railway management system API for booking train tickets, checking train
 - **Headers** =>x-api-key: <API_KEY>
 
 ### **5. Search Trains Between Stations**
-- **Path**: `POST /api/user/trains/searchs`
+- **Path**: `POST /api/user/trains`
 - **Description**: Searches for trains between the specified source and destination.
 - **Headers** =>Authorization: Bearer <JWT_TOKEN>
 **Request Body**:
@@ -103,7 +104,7 @@ A robust railway management system API for booking train tickets, checking train
   "destination": "kayamkulam",
   "number_of_seats": 3
    }
-### **6. Get User Bookings**
+### **7. Get User Bookings**
 - **Path**: `GET /api/user/bookings`
 - **Description**: Fetches all bookings made by the authenticated user.
 - **Headers** =>Authorization: Bearer <JWT_TOKEN>
